@@ -50,6 +50,8 @@ at the commit these receipts were measured at (`1f0a36a35`), the draft graph was
 
 ### 1. weights (93 gb)
 
+either let the smoke script download (step 3 does it), or pull manually:
+
 ```bash
 pip install -U "huggingface_hub[cli]"
 hf download unsloth/GLM-5.3-Flash-GGUF \
@@ -80,9 +82,20 @@ build gotchas:
 - receipts used the hip+vulkan build; decode ran on radv vulkan. a vulkan-only build should also work but is untested here.
 - this fork ships `llama-completion`; prefer it over `llama-cli` (different arg gating — e.g. `-no-cnv` is rejected there).
 
-### 3. smoke test
+### 3. pick a quant + smoke test
 
-or just run [`scripts/smoke.sh`](scripts/smoke.sh) (env-overridable `MODEL` / `ENGINE` / `N_PREDICT`):
+[`scripts/smoke.sh`](scripts/smoke.sh) lists the ladder, refuses quants that can't fit 128gb uma, downloads your pick and runs the bounded smoke:
+
+```bash
+./scripts/smoke.sh                 # table: what fits a 128gb halo at -c 8192
+./scripts/smoke.sh UD-IQ1_S        # download if missing + run (the measured receipt)
+./scripts/smoke.sh UD-IQ2_XXS      # bigger quant, same flags
+./scripts/smoke.sh UD-Q4_K_XL      # refused: 199.7gb > 128gb uma (--force overrides)
+```
+
+env overrides: `MODEL_DIR` `ENGINE` `CTX` `N_PREDICT` `DEV` `NGL` `PROMPT`.
+
+the exact measured invocation (what the script runs for the default UD-IQ1_S):
 
 ```bash
 timeout 900 /usr/bin/time -v <engine>/bin/llama-completion \
@@ -94,6 +107,18 @@ timeout 900 /usr/bin/time -v <engine>/bin/llama-completion \
 ```
 
 expect: coherent paris answer at ~9.3 tok/s decode. the exact expected log is [`results/smoke-glm-ud-iq1s.log`](results/smoke-glm-ud-iq1s.log).
+
+#### windows
+
+[`scripts/smoke.ps1`](scripts/smoke.ps1) is the same flow in powershell (fit table, download, bounded run):
+
+```powershell
+.\scripts\smoke.ps1                 # list what fits
+.\scripts\smoke.ps1 UD-IQ1_S        # download if missing + run
+.\scripts\smoke.ps1 UD-Q4_K_XL      # refused (use -Force)
+```
+
+caveats: needs `huggingface_hub[cli]` in PATH and a windows glm5next build (prefers `llama-completion.exe`, falls back to `llama-cli.exe` without the completion-only flags); windows vulkan runs on the amd adrenalin driver instead of mesa radv, so expect somewhat different tok/s than the linux receipts.
 
 ### 4. server + thinking modes
 
@@ -140,7 +165,8 @@ only UD-IQ1_S has been run on strix halo so far.
 .
 ├── README.md            <- this file
 ├── scripts/
-│   ├── smoke.sh         <- one-command reproduction of the measured smoke
+│   ├── smoke.sh         <- quant picker + downloader + bounded smoke (linux/macos)
+│   ├── smoke.ps1        <- same for windows (powershell)
 │   └── server-qa.sh     <- one-command server + reasoning_effort test
 ├── results/             <- receipts: writeups + raw logs, one per measurement
 └── docs/
