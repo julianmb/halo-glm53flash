@@ -35,15 +35,6 @@ at the commit these receipts were measured at (`1f0a36a35`), the draft graph was
 
 **update 2026-08-30**: unsloth pushed `d07e71ede "Add MTP support"` on the branch — the assert is gone (`glm5next.cpp:846` now implements the `LLM_GRAPH_TYPE_DECODER_MTP` case) alongside a `00699716c "Faster inference"` kv-cache rework. not yet rebuilt/benched here; numbers above are pre-MTP. tracking: [`docs/PR27754-tracking.md`](docs/PR27754-tracking.md). (on qwen3.8-flash-next the same trick gave 2.4x on this class of hardware — expect the biggest tok/s jump from here.)
 
-### community data points (r/StrixHalo, 2026-08-27 thread)
-
-| source | quant | ctx | config | prefill | decode |
-|---|---|---|---|---|---|
-| **this repo** | UD-IQ1_S 93g | 8k | full vulkan offload, `-fa off`, `-ub 512` | 19.7 | **9.31** |
-| u/Reggienator3 (bosgame m5, 128g) | UD-IQ3_XXS 120g | 262k | `--cpu-moe --kv-offload --no-kv-unified --fit off -ub 64`, `-fa off` | ~10 | ~4 |
-
-not apples-to-apples (they bought 262k ctx and parked the expert ffns on cpu with `--cpu-moe`; we ran everything on gpu at 8k) — but same silicon, and it shows the 1-bit tier is faster than the 3-bit long-context config. thread also corroborates the kld table: q2 "fits fine in linux but quantized poorly" (u/jld1532) and won't load on unsloth studio (u/FabioTR). quality note from both runs agrees: "output seems surprisingly good" at 3-bit, coherent at 1-bit.
-
 ## hardware this was measured on
 
 | part | value |
