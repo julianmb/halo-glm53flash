@@ -1,0 +1,82 @@
+0.00.186.417 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.186.622 W srv  llama_server: -----------------
+0.00.186.624 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.186.624 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.186.624 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.186.624 W srv  llama_server: -----------------
+0.00.187.808 I srv    load_model: loading model '/mnt/ssd2/glm5nextrocm/glm-5.3-flash/UD-IQ1_S/GLM-5.3-Flash-UD-IQ1_S-00001-of-00003.gguf'
+/home/user/source/ROCmFPX-glm5next/src/models/glm5next.cpp:690: GGML_ASSERT(params.gtype != LLM_GRAPH_TYPE_DECODER_MTP && "glm5next NextN graph not implemented yet") failed
+[New LWP 588878]
+[New LWP 588877]
+[New LWP 588876]
+[New LWP 588875]
+[New LWP 588874]
+[New LWP 588873]
+[New LWP 588872]
+[New LWP 588871]
+[New LWP 588870]
+[New LWP 588869]
+[New LWP 588868]
+[New LWP 588867]
+[New LWP 588866]
+[New LWP 588865]
+[New LWP 588864]
+[New LWP 588863]
+[New LWP 588862]
+[New LWP 588861]
+[New LWP 588860]
+[New LWP 588859]
+[New LWP 588858]
+[New LWP 588857]
+[New LWP 588856]
+[New LWP 588855]
+[New LWP 588854]
+[New LWP 588853]
+[New LWP 588852]
+[New LWP 588851]
+[New LWP 588850]
+[New LWP 588849]
+[New LWP 588848]
+[New LWP 588847]
+[New LWP 588846]
+[New LWP 588845]
+[New LWP 588843]
+[New LWP 588842]
+[New LWP 588840]
+[New LWP 588839]
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x0000755338510913 in __GI___wait4 (pid=588882, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+warning: 30	../sysdeps/unix/sysv/linux/wait4.c: No such file or directory
+#0  0x0000755338510913 in __GI___wait4 (pid=588882, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+30	in ../sysdeps/unix/sysv/linux/wait4.c
+#1  0x00005aa70514b983 in ggml_print_backtrace ()
+#2  0x00005aa70514bb2b in ggml_abort ()
+#3  0x00005aa70435936e in llama_model_glm5next::build_arch_graph(llm_graph_params const&) const ()
+#4  0x00005aa70428d4af in llama_model::build_graph(llm_graph_params const&) const ()
+#5  0x00005aa7041ebdb3 in llama_context::graph_reserve(unsigned int, unsigned int, unsigned int, llama_memory_context_i const*, bool, unsigned long*) ()
+#6  0x00005aa7041ec7d2 in llama_context::resolve_fused_ops(llama_memory_context_i const*, unsigned int) ()
+#7  0x00005aa7041ed773 in llama_context::sched_reserve() ()
+#8  0x00005aa7041eea19 in llama_context::llama_context(llama_model const&, llama_context_params) ()
+#9  0x00005aa7041efcf4 in llama_init_from_model ()
+#10 0x00005aa703f7a4c6 in common_get_device_memory_data_impl(char const*, llama_model_params const*, llama_context_params const*, std::vector<ggml_backend_device*, std::allocator<ggml_backend_device*> >&, unsigned int&, unsigned int&, unsigned int&, ggml_log_level) ()
+#11 0x00005aa703f7aa6a in common_params_fit_impl(char const*, llama_model_params*, llama_context_params*, float*, llama_model_tensor_buft_override*, unsigned long*, unsigned int, common_fit_extra_model const*, ggml_log_level)::{lambda(std::vector<llama_device_memory_data, std::allocator<llama_device_memory_data> >&)#1}::operator()(std::vector<llama_device_memory_data, std::allocator<llama_device_memory_data> >&) const ()
+#12 0x00005aa703f7bc9a in common_params_fit_impl(char const*, llama_model_params*, llama_context_params*, float*, llama_model_tensor_buft_override*, unsigned long*, unsigned int, common_fit_extra_model const*, ggml_log_level) ()
+#13 0x00005aa703f7fc79 in common_fit_params(char const*, llama_model_params*, llama_context_params*, float*, llama_model_tensor_buft_override*, unsigned long*, unsigned int, common_fit_extra_model const*, ggml_log_level) ()
+#14 0x00005aa703f5844e in common_init_result::common_init_result(common_params&, bool) ()
+#15 0x00005aa703f597f3 in common_init_from_params(common_params&, bool) ()
+#16 0x00005aa703e21d96 in server_context_impl::load_model(common_params&) ()
+#17 0x00005aa703d83c57 in llama_server(common_params&, int, char**) ()
+#18 0x00005aa703d850c6 in llama_server(int, char**) ()
+#19 0x000075533842a1ca in __libc_start_call_main (main=main@entry=0x5aa703d4c5d0 <main>, argc=argc@entry=24, argv=argv@entry=0x7ffef7d051d8) at ../sysdeps/nptl/libc_start_call_main.h:58
+warning: 58	../sysdeps/nptl/libc_start_call_main.h: No such file or directory
+#20 0x000075533842a28b in __libc_start_main_impl (main=0x5aa703d4c5d0 <main>, argc=24, argv=0x7ffef7d051d8, init=<optimised out>, fini=<optimised out>, rtld_fini=<optimised out>, stack_end=0x7ffef7d051c8) at ../csu/libc-start.c:360
+warning: 360	../csu/libc-start.c: No such file or directory
+#21 0x00005aa703d7c9c5 in _start ()
+[Inferior 1 (process 588837) detached]

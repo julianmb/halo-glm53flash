@@ -1,0 +1,76 @@
+0.00.233.552 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.233.756 W srv  llama_server: -----------------
+0.00.233.757 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.233.757 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.233.757 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.233.758 W srv  llama_server: -----------------
+0.00.234.931 I srv    load_model: loading model '/mnt/ssd2/glm5nextrocm/glm-5.3-flash/UD-IQ1_S/GLM-5.3-Flash-UD-IQ1_S-00001-of-00003.gguf'
+0.00.851.940 W load: special_eot_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.00.851.952 W load: special_eom_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.00.881.737 W model has unused tensor blk.45.attn_norm.weight (size = 16384 bytes) -- ignoring
+0.00.881.746 W model has unused tensor blk.45.ffn_norm.weight (size = 16384 bytes) -- ignoring
+0.00.881.748 W model has unused tensor blk.45.attn_q_a.weight (size = 4325376 bytes) -- ignoring
+0.00.881.750 W model has unused tensor blk.45.attn_q_a_norm.weight (size = 6144 bytes) -- ignoring
+0.00.881.751 W model has unused tensor blk.45.attn_q_b.weight (size = 26738688 bytes) -- ignoring
+0.00.881.753 W model has unused tensor blk.45.attn_kv_a_mqa.weight (size = 2228224 bytes) -- ignoring
+0.00.881.755 W model has unused tensor blk.45.attn_kv_a_norm.weight (size = 2048 bytes) -- ignoring
+0.00.881.757 W model has unused tensor blk.45.attn_k_b.weight (size = 8912896 bytes) -- ignoring
+0.00.881.759 W model has unused tensor blk.45.attn_v_b.weight (size = 8912896 bytes) -- ignoring
+0.00.881.762 W model has unused tensor blk.45.attn_output.weight (size = 46137344 bytes) -- ignoring
+0.00.881.764 W model has unused tensor blk.45.indexer.k_norm.weight (size = 512 bytes) -- ignoring
+0.00.881.768 W model has unused tensor blk.45.indexer.k_norm.bias (size = 512 bytes) -- ignoring
+0.00.881.770 W model has unused tensor blk.45.indexer.proj.weight (size = 524288 bytes) -- ignoring
+0.00.881.772 W model has unused tensor blk.45.indexer.attn_k.weight (size = 557056 bytes) -- ignoring
+0.00.881.774 W model has unused tensor blk.45.indexer.attn_q_b.weight (size = 6684672 bytes) -- ignoring
+0.00.881.776 W model has unused tensor blk.45.indexer_compressor_gate.weight (size = 557056 bytes) -- ignoring
+0.00.881.778 W model has unused tensor blk.45.indexer_compressor_ape.weight (size = 2048 bytes) -- ignoring
+0.00.881.780 W model has unused tensor blk.45.ffn_gate_inp.weight (size = 4718592 bytes) -- ignoring
+0.00.881.783 W model has unused tensor blk.45.exp_probs_b.bias (size = 1152 bytes) -- ignoring
+0.00.881.785 W model has unused tensor blk.45.ffn_gate_exps.weight (size = 792723456 bytes) -- ignoring
+0.00.881.787 W model has unused tensor blk.45.ffn_up_exps.weight (size = 792723456 bytes) -- ignoring
+0.00.881.788 W model has unused tensor blk.45.ffn_down_exps.weight (size = 1038090240 bytes) -- ignoring
+0.00.881.791 W model has unused tensor blk.45.ffn_gate_shexp.weight (size = 5767168 bytes) -- ignoring
+0.00.881.793 W model has unused tensor blk.45.ffn_up_shexp.weight (size = 5767168 bytes) -- ignoring
+0.00.881.795 W model has unused tensor blk.45.ffn_down_shexp.weight (size = 6881280 bytes) -- ignoring
+0.00.881.798 W model has unused tensor blk.45.nextn.eh_proj.weight (size = 35651584 bytes) -- ignoring
+0.00.881.800 W model has unused tensor blk.45.nextn.enorm.weight (size = 16384 bytes) -- ignoring
+0.00.881.802 W model has unused tensor blk.45.nextn.hnorm.weight (size = 16384 bytes) -- ignoring
+0.00.881.805 W model has unused tensor blk.45.nextn.shared_head_norm.weight (size = 16384 bytes) -- ignoring
+0.24.997.320 W llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+0.25.094.499 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC pre is assigned to device CPU (usually due to missing support)
+0.25.094.506 W resolve_fused_ops: fused DeepSeek V4 HC pre not supported, set to disabled
+0.25.096.568 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC comb is assigned to device CPU (usually due to missing support)
+0.25.096.576 W resolve_fused_ops: fused DeepSeek V4 HC comb not supported, set to disabled
+0.25.107.524 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC post is assigned to device CPU (usually due to missing support)
+0.25.107.526 W resolve_fused_ops: fused DeepSeek V4 HC post not supported, set to disabled
+0.25.245.382 I cmn          init: llama threadpool init, n_threads = 16
+0.25.543.374 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 8192, kv_unified = 'true'
+0.25.557.163 I srv          init: chat template supports preserving reasoning, consider enabling it via --reasoning-preserve
+0.25.557.182 I srv  llama_server: model loaded
+0.25.557.184 I srv  llama_server: listening on http://127.0.0.1:8139
+0.59.737.100 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.59.737.163 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+1.01.881.057 I slot print_timing: id  3 | task 0 | prompt eval time =    1275.10 ms /    22 tokens (   57.96 ms per token,    17.25 tokens per second)
+1.01.881.060 I slot print_timing: id  3 | task 0 |        eval time =     868.74 ms /     9 tokens (  108.59 ms per token,     9.21 tokens per second)
+1.01.881.061 I slot print_timing: id  3 | task 0 |       total time =    2143.83 ms /    31 tokens
+1.01.881.062 I slot print_timing: id  3 | task 0 |    graphs reused =          0
+1.01.881.081 I slot      release: id  3 | task 0 | stop processing: n_tokens = 30, truncated = 0
+1.24.142.026 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.333 (> 0.100 thold), f_keep = 0.267
+1.24.248.293 I slot launch_slot_: id  3 | task 12 | processing task, is_child = 0
+1.36.035.694 I slot print_timing: id  3 | task 12 | n_gen =    100, tg =   9.30 t/s, tg_3s =   9.39 t/s
+1.39.135.779 I slot print_timing: id  3 | task 12 | n_gen =    129, tg =   9.31 t/s, tg_3s =   9.35 t/s
+1.42.229.953 I slot print_timing: id  3 | task 12 | n_gen =    158, tg =   9.32 t/s, tg_3s =   9.37 t/s
+1.45.236.285 I slot print_timing: id  3 | task 12 | n_gen =    186, tg =   9.32 t/s, tg_3s =   9.31 t/s
+1.48.249.913 I slot print_timing: id  3 | task 12 | n_gen =    214, tg =   9.32 t/s, tg_3s =   9.29 t/s
+1.51.256.396 I slot print_timing: id  3 | task 12 | n_gen =    242, tg =   9.32 t/s, tg_3s =   9.31 t/s
+1.54.263.394 I slot print_timing: id  3 | task 12 | n_gen =    270, tg =   9.32 t/s, tg_3s =   9.31 t/s
+1.57.281.729 I slot print_timing: id  3 | task 12 | n_gen =    298, tg =   9.31 t/s, tg_3s =   9.28 t/s
+2.00.293.675 I slot print_timing: id  3 | task 12 | n_gen =    326, tg =   9.31 t/s, tg_3s =   9.30 t/s
+2.03.329.694 I slot print_timing: id  3 | task 12 | n_gen =    354, tg =   9.30 t/s, tg_3s =   9.22 t/s
+2.06.379.447 I slot print_timing: id  3 | task 12 | n_gen =    382, tg =   9.29 t/s, tg_3s =   9.18 t/s
+2.08.335.081 I slot print_timing: id  3 | task 12 | prompt eval time =    1138.63 ms /    24 tokens (   47.44 ms per token,    21.08 tokens per second)
+2.08.335.085 I slot print_timing: id  3 | task 12 |        eval time =   42948.10 ms /   400 tokens (  107.64 ms per token,     9.29 tokens per second)
+2.08.335.086 I slot print_timing: id  3 | task 12 |       total time =   44086.74 ms /   424 tokens
+2.08.335.087 I slot print_timing: id  3 | task 12 |    graphs reused =          0
+2.08.335.110 I slot      release: id  3 | task 12 | stop processing: n_tokens = 423, truncated = 0
+6.55.355.841 I srv    operator(): operator(): cleaning up before exit...

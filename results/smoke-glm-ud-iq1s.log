@@ -1,0 +1,86 @@
+0.00.222.968 I llama_completion: llama backend init
+0.00.222.972 I llama_completion: load the model and apply lora adapter, if any
+0.00.833.891 W load: special_eot_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.00.833.896 W load: special_eom_id is not in special_eog_ids - the tokenizer config may be incorrect
+0.00.864.726 W model has unused tensor blk.45.attn_norm.weight (size = 16384 bytes) -- ignoring
+0.00.864.731 W model has unused tensor blk.45.ffn_norm.weight (size = 16384 bytes) -- ignoring
+0.00.864.733 W model has unused tensor blk.45.attn_q_a.weight (size = 4325376 bytes) -- ignoring
+0.00.864.734 W model has unused tensor blk.45.attn_q_a_norm.weight (size = 6144 bytes) -- ignoring
+0.00.864.736 W model has unused tensor blk.45.attn_q_b.weight (size = 26738688 bytes) -- ignoring
+0.00.864.738 W model has unused tensor blk.45.attn_kv_a_mqa.weight (size = 2228224 bytes) -- ignoring
+0.00.864.739 W model has unused tensor blk.45.attn_kv_a_norm.weight (size = 2048 bytes) -- ignoring
+0.00.864.740 W model has unused tensor blk.45.attn_k_b.weight (size = 8912896 bytes) -- ignoring
+0.00.864.742 W model has unused tensor blk.45.attn_v_b.weight (size = 8912896 bytes) -- ignoring
+0.00.864.743 W model has unused tensor blk.45.attn_output.weight (size = 46137344 bytes) -- ignoring
+0.00.864.746 W model has unused tensor blk.45.indexer.k_norm.weight (size = 512 bytes) -- ignoring
+0.00.864.748 W model has unused tensor blk.45.indexer.k_norm.bias (size = 512 bytes) -- ignoring
+0.00.864.749 W model has unused tensor blk.45.indexer.proj.weight (size = 524288 bytes) -- ignoring
+0.00.864.751 W model has unused tensor blk.45.indexer.attn_k.weight (size = 557056 bytes) -- ignoring
+0.00.864.753 W model has unused tensor blk.45.indexer.attn_q_b.weight (size = 6684672 bytes) -- ignoring
+0.00.864.755 W model has unused tensor blk.45.indexer_compressor_gate.weight (size = 557056 bytes) -- ignoring
+0.00.864.757 W model has unused tensor blk.45.indexer_compressor_ape.weight (size = 2048 bytes) -- ignoring
+0.00.864.759 W model has unused tensor blk.45.ffn_gate_inp.weight (size = 4718592 bytes) -- ignoring
+0.00.864.760 W model has unused tensor blk.45.exp_probs_b.bias (size = 1152 bytes) -- ignoring
+0.00.864.762 W model has unused tensor blk.45.ffn_gate_exps.weight (size = 792723456 bytes) -- ignoring
+0.00.864.764 W model has unused tensor blk.45.ffn_up_exps.weight (size = 792723456 bytes) -- ignoring
+0.00.864.766 W model has unused tensor blk.45.ffn_down_exps.weight (size = 1038090240 bytes) -- ignoring
+0.00.864.768 W model has unused tensor blk.45.ffn_gate_shexp.weight (size = 5767168 bytes) -- ignoring
+0.00.864.769 W model has unused tensor blk.45.ffn_up_shexp.weight (size = 5767168 bytes) -- ignoring
+0.00.864.771 W model has unused tensor blk.45.ffn_down_shexp.weight (size = 6881280 bytes) -- ignoring
+0.00.864.773 W model has unused tensor blk.45.nextn.eh_proj.weight (size = 35651584 bytes) -- ignoring
+0.00.864.775 W model has unused tensor blk.45.nextn.enorm.weight (size = 16384 bytes) -- ignoring
+0.00.864.777 W model has unused tensor blk.45.nextn.hnorm.weight (size = 16384 bytes) -- ignoring
+0.00.864.779 W model has unused tensor blk.45.nextn.shared_head_norm.weight (size = 16384 bytes) -- ignoring
+0.25.605.477 W llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+0.25.644.872 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC pre is assigned to device CPU (usually due to missing support)
+0.25.644.875 W resolve_fused_ops: fused DeepSeek V4 HC pre not supported, set to disabled
+0.25.646.956 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC comb is assigned to device CPU (usually due to missing support)
+0.25.646.958 W resolve_fused_ops: fused DeepSeek V4 HC comb not supported, set to disabled
+0.25.658.156 W resolve_fused_ops: layer 0 is assigned to device Vulkan0 but fused DeepSeek V4 HC post is assigned to device CPU (usually due to missing support)
+0.25.658.158 W resolve_fused_ops: fused DeepSeek V4 HC post not supported, set to disabled
+0.25.829.098 I cmn          init: llama threadpool init, n_threads = 16
+0.26.187.640 I 
+0.26.187.698 I system_info: n_threads = 16 (n_threads_batch = 16) / 32 | ROCm : NO_VMM = 1 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.26.187.699 I 
+0.26.187.731 I sampler seed: 2107465034
+0.26.187.739 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 1.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.26.187.743 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> ?temp-ext -> dist 
+0.26.187.744 I generate: n_ctx = 8192, n_batch = 2048, n_predict = 32, n_keep = 0
+0.26.187.744 I 
+The capital of France is Paris, a city with a rich history and culture, home to famous landmarks like the Eiffel Tower and the Louvre Museum. It is also the country
+
+0.29.775.107 I common_perf_print:    sampling time =       4.23 ms
+0.29.775.108 I common_perf_print:    samplers time =       1.51 ms /    37 tokens
+0.29.775.111 I common_perf_print:        load time =   25490.91 ms
+0.29.775.112 I common_perf_print: prompt eval time =     253.57 ms /     5 tokens (   50.71 ms per token,    19.72 tokens per second)
+0.29.775.113 I common_perf_print:        eval time =    3328.67 ms /    31 runs   (  107.38 ms per token,     9.31 tokens per second)
+0.29.775.113 I common_perf_print:       total time =    3587.47 ms /    36 tokens
+0.29.775.114 I common_perf_print: unaccounted time =       0.99 ms /   0.0 %      (total - sampling - prompt eval - eval) / (total)
+0.29.775.115 I common_perf_print:    graphs reused =          0
+	Command being timed: "timeout 900 /home/user/source/ROCmFPX-glm5next/build-strix-glm5next/bin/llama-completion -m /mnt/ssd2/glm5nextrocm/glm-5.3-flash/UD-IQ1_S/GLM-5.3-Flash-UD-IQ1_S-00001-of-00003.gguf -dev Vulkan0 -ngl 99 -c 8192 -fa off -ub 512 -p The capital of France is -n 32 --temp 1.0 --top-p 0.95 -no-cnv --simple-io"
+	User time (seconds): 3.24
+	System time (seconds): 12.08
+	Percent of CPU this job got: 50%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:30.16
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 412044
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 209
+	Minor (reclaiming a frame) page faults: 101995
+	Voluntary context switches: 28783
+	Involuntary context switches: 896
+	Swaps: 0
+	File system inputs: 176919088
+	File system outputs: 384
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
