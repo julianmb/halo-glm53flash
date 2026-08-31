@@ -1,15 +1,15 @@
 # PR #27754 tracking — glm5next NextN/MTP graph
 
-Last checked: **2026-08-30 evening**
+Last checked: **2026-08-31**
 
 ## Snapshot
 
 | Ref | Value |
 |---|---|
 | PR state | **OPEN** (unmerged) |
-| PR head | `d07e71e` (updated 2026-08-30T08:06:22Z) |
-| unsloth fork `glm5next/upstream` tip | `d07e71e` |
-| our worktree `~/source/ROCmFPX-glm5next` HEAD | `d07e71ede` (merged + rebuilt 2026-08-30) |
+| PR head | `5796547` (updated 2026-08-30T22:34:37Z) |
+| unsloth fork `glm5next/upstream` tip | `5796547` |
+| our worktree `~/source/ROCmFPX-glm5next` HEAD | `5796547f3` (merged + rebuilt 2026-08-31, build 10748) |
 
 ## Delta 1f0a36a35 -> d07e71e (fetched + verified 2026-08-30)
 
@@ -40,6 +40,11 @@ the new build:
 | `--fit` | present | present | |
 | `--kv-offload` | present | present | |
 | `--no-kv-unified` / `--cache-ram` | absent | absent | from a different/newer build, not this fork |
+
+update 2026-08-31: ff-merged to `5796547f3` — glm5next pooled-keys fix
+(`5796547f3` "invalidate pooled keys when a shift splits a pool") + big
+ggml/master merge (`a175dcd33`, incl. hip rdna3 mmq tuning). rebuilt clean:
+`build 10748, commit 5796547f3`; `draft-mtp` still registered.
 
 **only the bench is blocked**: `UD-IQ1_S` weights were cleaned from
 `/mnt/ssd2/models/glm-5.3-flash/` on 2026-08-30 (re-downloadable from
