@@ -46,6 +46,11 @@ update 2026-08-31: ff-merged to `5796547f3` — glm5next pooled-keys fix
 ggml/master merge (`a175dcd33`, incl. hip rdna3 mmq tuning). rebuilt clean:
 `build 10748, commit 5796547f3`; `draft-mtp` still registered.
 
+synthetic verification (no weights needed): `test-llama-archs` at `5796547f3`
+— glm5next fixture **ok on all backends** (vulkan, radv strix halo, meta
+skip), 0 fails. suite-wide 41 fails are upstream's, all on one backend
+enumeration (refact/qwen2/qwen3tts/pockettts/...), none involve glm5next.
+
 **only the bench is blocked**: `UD-IQ1_S` weights were cleaned from
 `/mnt/ssd2/models/glm-5.3-flash/` on 2026-08-30 (re-downloadable from
 `unsloth/GLM-5.3-Flash-GGUF`, 93g). pending approval to re-pull.
